@@ -1,0 +1,102 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--background-primary);
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  background-color: var(--background-secondary);
+  border-bottom: 1px solid var(--border-color);
+  height: 60px;
+  color: var(--text-primary);
+  position: sticky; /* Přilepí lištu nahoře při scrollování */
+  top: 0;
+  z-index: 100;
+}
+
+.nav-left, .nav-center, .nav-right {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.nav-left {
+  justify-content: flex-start;
+}
+.nav-center {
+  justify-content: center;
+}
+.nav-right {
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 1.8rem;
+  display: flex;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 35px;
+}
+
+.page-title {
+    font-size: 1.2rem;
+    margin: 0;
+    white-space: nowrap; /* Zabrání zalamování textu */
+}
+
+.active-task-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  white-space: nowrap;
+}
+.task-name-header {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+.task-timer {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.content-area {
+  flex-grow: 1;
+  padding: 1.5rem;
+}
+
+/* --- Responzivní styly pro mobilní zařízení --- */
+@media (max-width: 768px) {
+  .main-nav {
+    padding: 0 0.5rem;
+  }
+  .page-title {
+    display: none; /* Skryjeme nadpis stránky na mobilu pro úsporu místa */
+  }
+  .active-task-timer {
+    display: none; /* Skryjeme i časovač na mobilu */
+  }
+  .nav-center {
+    flex: 0; /* Středová část nezabírá místo */
+  }
+  .content-area {
+    padding: 1rem;
+  }
+}

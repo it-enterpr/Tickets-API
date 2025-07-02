@@ -1,0 +1,8 @@
+.light-theme {
+  --background-primary: #f0f2f5;
+  --background-secondary: #ffffff;
+  --text-primary: #1C2352;
+  --text-secondary: #5c6a7e;
+  --accent-primary: #1e9a44; /* Trochu tmavší zelená pro lepší kontrast */
+  --border-color: #d9e2ec;
+}

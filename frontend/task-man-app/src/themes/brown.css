@@ -1,0 +1,8 @@
+.brown-theme {
+  --background-primary: #3e2723;
+  --background-secondary: #795548;
+  --text-primary: #ffffff;
+  --text-secondary: #6d4c41;
+  --accent-primary: #795548;
+  --border-color: #d7ccc8;
+}

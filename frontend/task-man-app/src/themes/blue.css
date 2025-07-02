@@ -1,0 +1,8 @@
+.blue-theme {
+  --background-primary: #1C2352;
+  --background-secondary: #2a347a;
+  --text-primary: #ffffff;
+  --text-secondary: #a8b2d3;
+  --accent-primary: #21B14B;
+  --border-color: #4a5499;
+}

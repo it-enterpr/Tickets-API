@@ -1,0 +1,8 @@
+.green-theme {
+  --background-primary: #1b5e20;
+  --background-secondary: #2e7d32;
+  --text-primary: #ffffff;
+  --text-secondary: #a5d6a7;
+  --accent-primary: #a5d6a7;
+  --border-color: #388e3c;
+}

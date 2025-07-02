@@ -1,0 +1,20 @@
+/* green-theme.css /
+:root {
+--background-primary: #e8f5e9; / Světle zelené pozadí /
+--background-secondary: #c8e6c9; / Středně světlá zelená /
+--text-primary: #388e3c; / Tmavě zelený text /
+--text-secondary: #424242; / Tmavě šedý sekundární text /
+--accent-color: #43a047; / Výrazná zelená /
+--border-color: #a5d6a7; / Světlejší zelená ohraničení /
+--brand-blue: #1976d2; / Ponecháme modrou pro akcenty, lze upravit 
+} */
+
+.green-theme {
+--background-primary: #e8f5e9;
+--background-secondary: #c8e6c9;
+--text-primary: #388e3c;
+--text-secondary: #424242;
+--accent-color: #43a047;
+--border-color: #a5d6a7;
+--brand-blue: #1976d2;
+}

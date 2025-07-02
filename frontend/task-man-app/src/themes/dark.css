@@ -1,0 +1,8 @@
+.dark-theme {
+  --background-primary: #2d3436;
+  --background-secondary: #3b4446;
+  --text-primary: #dfe6e9;
+  --text-secondary: #b2bec3;
+  --accent-primary: #00b894; /* Nová akcentní barva pro kontrast */
+  --border-color: #636e72;
+}

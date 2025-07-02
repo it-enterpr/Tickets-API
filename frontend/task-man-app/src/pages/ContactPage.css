@@ -1,0 +1,47 @@
+.contact-page-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem;
+}
+.contact-card {
+  background-color: var(--background-secondary);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  flex: 1;
+  min-width: 350px;
+}
+.contact-card h2 {
+  margin-top: 0;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+.direct-contact-options {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+/* Zde zrecyklujeme styly ze SettingsPage.css, není třeba je psát znovu */
+/* .form-group, .form-button ... */
+
+/* ... (stávající styly zůstávají stejné) ... */
+.contact-page-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem;
+}
+/* ... */
+@media (max-width: 768px) {
+  .contact-page-layout {
+    flex-direction: column; /* Dáme karty pod sebe */
+    gap: 1.5rem;
+  }
+}

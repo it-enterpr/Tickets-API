@@ -1,0 +1,20 @@
+/* blue-theme.css /
+:root {
+--background-primary: #e3f2fd; / Světle modrá pozadí /
+--background-secondary: #bbdefb; / Středně světlá modrá /
+--text-primary: #1976d2; / Tmavě modrý text /
+--text-secondary: #424242; / Tmavě šedý sekundární text /
+--accent-color: #1e88e5; / Výrazná modrá /
+--border-color: #90caf9; / Světlejší modrá ohraničení /
+--brand-blue: #1976d2; / Modrá barva značky 
+}  */
+
+.blue-theme {
+--background-primary: #e3f2fd;
+--background-secondary: #bbdefb;
+--text-primary: #1976d2;
+--text-secondary: #424242;
+--accent-color: #1e88e5;
+--border-color: #90caf9;
+--brand-blue: #1976d2;
+}

@@ -1,0 +1,17 @@
+/* ... (stávající styly zůstávají stejné) ... */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap; /* Povolí zalamování */
+  gap: 15px; /* Mezera mezi prvky */
+}
+/* ... */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column; /* Dáme prvky pod sebe */
+    gap: 10px;
+  }
+}

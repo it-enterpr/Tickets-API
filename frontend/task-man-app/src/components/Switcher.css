@@ -1,0 +1,80 @@
+.switcher-container {
+  position: relative;
+  margin-left: 10px;
+}
+
+.switcher-button {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.switcher-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.switcher-dropdown {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: var(--background-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  list-style: none;
+  padding: 5px 0;
+  margin: 0;
+  width: 150px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.switcher-dropdown li {
+  padding: 10px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.switcher-dropdown li:hover {
+  background-color: var(--brand-blue, #0d47a1);
+}
+
+.switcher-icon {
+    margin-right: 10px;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.switcher-dropdown li a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+}
+
+.switcher-dropdown li.separator {
+    padding: 5px 15px;
+}
+.switcher-dropdown li.separator:hover {
+    background-color: transparent; /* Bez hover efektu */
+}

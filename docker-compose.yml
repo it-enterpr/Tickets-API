@@ -1,0 +1,57 @@
+services:
+  db:
+    image: postgres:14-alpine
+    container_name: api_man_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  core_api:
+    container_name: api_man_core_api
+    build:
+      context: .
+      dockerfile: ./core_api/Dockerfile
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    volumes:
+      - ./core_api/app:/code/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db/${POSTGRES_DB}
+      - SECRET_KEY=${SECRET_KEY}
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  odoo_connector:
+    container_name: api_man_odoo_connector
+    build: ./connectors/odoo
+    command: uvicorn app.connector:app --host 0.0.0.0 --port 8001 --reload
+    volumes:
+      - ./connectors/odoo/app:/code/app
+    ports:
+      - "8001:8001"
+    restart: unless-stopped
+
+  pohoda_connector:
+    container_name: api_man_pohoda_connector
+    build: ./connectors/pohoda
+    command: uvicorn app.connector:app --host 0.0.0.0 --port 8002 --reload
+    volumes:
+      - ./connectors/pohoda/app:/code/app
+    ports:
+      - "8002:8002"
+    environment:
+      - POHODA_CLIENT_ID=${POHODA_CLIENT_ID}
+      - POHODA_CLIENT_SECRET=${POHODA_CLIENT_SECRET}
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

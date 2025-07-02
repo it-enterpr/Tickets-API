@@ -1,0 +1,8 @@
+.pink-theme {
+  --background-primary: #880e4f;
+  --background-secondary: #ec407a;
+  --text-primary: #ffffff;
+  --text-secondary: #5f5f5f;
+  --accent-primary: #ec407a;
+  --border-color: #f8bbd0;
+}

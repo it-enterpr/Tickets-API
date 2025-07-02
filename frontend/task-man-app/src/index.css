@@ -1,0 +1,39 @@
+/* Import vlastního fontu */
+@font-face {
+  font-family: 'Hero';
+  src: url('./assets/fonts/NewHero-Regular.woff2') format('woff2'), /* Nahraď správným názvem souboru */
+       url('./assets/fonts/NewHero-Regular.woff') format('woff');   /* Nahraď správným názvem souboru */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Definice barevných proměnných pro celou aplikaci */
+:root {
+  /* Základní paleta značky */
+  --brand-blue: #1C2352;
+  --brand-green: #21B14B;
+
+  /* Výchozí (tmavé) téma inspirované logem */
+  --background-primary: #1C2352; /* Tmavě modré pozadí */
+  --background-secondary: #2a347a; /* Světlejší modrá pro panely */
+  --text-primary: #FFFFFF; /* Bílý text */
+  --text-secondary: #a8b2d3; /* Světle šedý text */
+  --accent-primary: var(--brand-green); /* Zelená pro tlačítka a odkazy */
+  --border-color: #4a5499;
+
+  /* Písmo */
+  --font-family-main: 'Hero', sans-serif;
+}
+
+/* Základní styly pro celou aplikaci */
+body {
+  margin: 0;
+  font-family: var(--font-family-main);
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+* {
+  box-sizing: border-box;
+}

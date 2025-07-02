@@ -1,0 +1,8 @@
+.orange-theme {
+  --background-primary: #ec661dc7;
+  --background-secondary: #fb8c00;
+  --text-primary: #ffffff;
+  --text-secondary: #6b2e05;
+  --accent-primary: #fb8c00;
+  --border-color: #ffe0b2;
+}

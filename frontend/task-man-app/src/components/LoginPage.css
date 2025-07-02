@@ -1,0 +1,60 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.login-form {
+  padding: 40px;
+  border-radius: 8px;
+  background-color: #3a3f4b;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  text-align: center;
+}
+
+.login-form h1 {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Důležité pro správné zarovnání */
+}
+
+.login-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #61dafb;
+  color: #282c34;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.login-button:hover {
+  background-color: #52b8d8;
+}
+
+.error-message {
+  color: #ff6b6b;
+  margin-top: 15px;
+}

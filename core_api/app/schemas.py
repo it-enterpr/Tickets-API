@@ -3,6 +3,9 @@ from datetime import datetime
 from typing import Optional, Dict, Any, List
 
 # --- Schémata pro UŽIVATELE a TOKENY (zůstávají stejná) ---
+class UserBase(BaseModel):
+    email: EmailStr
+    
 class UserCreate(BaseModel):
     email: EmailStr
     password: str
@@ -12,6 +15,15 @@ class User(BaseModel):
     email: EmailStr
     is_active: bool
     created_at: datetime
+
+class UserCreate(UserBase):
+    password: str
+
+class User(UserBase):
+    id: int
+    role: str
+    class Config:
+        from_attributes = True
 
     class Config:
         from_attributes = True
@@ -44,3 +56,6 @@ class Connection(BaseModel):
 
     class Config:
         from_attributes = True
+
+class TripVisibilityUpdate(BaseModel):
+    is_visible: bool

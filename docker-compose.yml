@@ -1,7 +1,7 @@
 services:
   db:
     image: postgres:14-alpine
-    container_name: api_man_db
+    container_name: tickets_api_db
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
@@ -11,46 +11,45 @@ services:
     ports:
       - "5432:5432"
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   core_api:
-    container_name: api_man_core_api
+    container_name: tickets_api_core_api
     build:
-      context: .
-      dockerfile: ./core_api/Dockerfile
-    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+      context: ./core_api
+      dockerfile: Dockerfile
     volumes:
       - ./core_api/app:/code/app
+      - ./core_api/firebase-service-account.json:/code/firebase-service-account.json
     ports:
       - "8000:8000"
     environment:
       - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db/${POSTGRES_DB}
       - SECRET_KEY=${SECRET_KEY}
       - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+      - ODOO_URL=${ODOO_URL}
+      - ODOO_DB=${ODOO_DB}
+      - ODOO_USER=${ODOO_USER}
+      - ODOO_PASSWORD=${ODOO_PASSWORD}
+      - GOOGLE_APPLICATION_CREDENTIALS=/code/firebase-service-account.json
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     restart: unless-stopped
 
   odoo_connector:
-    container_name: api_man_odoo_connector
-    build: ./connectors/odoo
-    command: uvicorn app.connector:app --host 0.0.0.0 --port 8001 --reload
+    container_name: tickets_api_odoo_connector
+    build:
+      context: ./connectors/odoo
+      dockerfile: Dockerfile
     volumes:
       - ./connectors/odoo/app:/code/app
     ports:
       - "8001:8001"
-    restart: unless-stopped
-
-  pohoda_connector:
-    container_name: api_man_pohoda_connector
-    build: ./connectors/pohoda
-    command: uvicorn app.connector:app --host 0.0.0.0 --port 8002 --reload
-    volumes:
-      - ./connectors/pohoda/app:/code/app
-    ports:
-      - "8002:8002"
-    environment:
-      - POHODA_CLIENT_ID=${POHODA_CLIENT_ID}
-      - POHODA_CLIENT_SECRET=${POHODA_CLIENT_SECRET}
     restart: unless-stopped
 
 volumes:

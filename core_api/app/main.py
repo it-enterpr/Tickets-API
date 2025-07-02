@@ -2,6 +2,7 @@ import os
 import requests
 from typing import List
 from fastapi import FastAPI, Depends, HTTPException, status, APIRouter
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from . import crud, models, schemas, auth, database
 
